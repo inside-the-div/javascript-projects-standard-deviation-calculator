@@ -5,16 +5,16 @@ textarea.addEventListener("keypress", restrictInput);
 
 function StandardDeviationFormValidate()
 {
-    RemoveAllErrorMessage();
+    _cmnRemoveAllErrorMessage();
 
     var inputNumber = document.getElementById("inputNumbers").value;
     var isNumber = inputNumber.split(',');
     var numbers = isNumber.filter(e => e);
     var isNumberLength = isNumber.length;
 
-    if(IsInputFieldEmpty("inputNumbers"))
+    if(_cmnIsInputFieldEmpty("inputNumbers"))
     {
-        ShowErrorMessageBottomOfTheInputFiled("inputNumbers", "Enter decimal number.");
+        _cmnShowErrorMessageBottomOfTheInputFiled("inputNumbers", "Enter decimal number.");
         return false;
     }
     
@@ -22,7 +22,7 @@ function StandardDeviationFormValidate()
     {
         if(isNaN(numbers[i]) && numbers[i] <= 0)
         {
-            ShowErrorMessageBottomOfTheInputFiled("inputNumbers", "Enter valid decimal number.");
+            _cmnShowErrorMessageBottomOfTheInputFiled("inputNumbers", "Enter valid decimal number.");
             return false;
         }
     }
@@ -34,7 +34,7 @@ function StandardDeviationReset()
 {
     document.getElementById("inputNumbers").value= "";
 
-    RemoveAllErrorMessage();
+    _cmnRemoveAllErrorMessage();
 
     _cmnHideElement("OutputResult");
     _cmnShowElement("OutputInfo", "flex");
